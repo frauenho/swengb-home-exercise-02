@@ -6,8 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.squareup.moshi.Moshi
 import kotlinx.android.synthetic.main.activity_movie_detail.*
+import kotlinx.android.synthetic.main.item_movie.view.*
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 class MovieDetailActivity : AppCompatActivity() {
 
@@ -49,12 +53,14 @@ class MovieDetailActivity : AppCompatActivity() {
         else {
              MovieRepository.movieById(movieId, success = {
                 val movie = it
+                 Glide.with(this).load(it.backdropImagePath).into(movie_backdrop_image)
+                 Glide.with(this).load(it.posterImagePath).into(movie_detailposter_image)
                  movie_detail_header.text = movie.title
                  movie_detail_director.text = movie.director.name
                  movie_detail_actors.text = movie.actors.joinToString(", ") { it.name }
                  movie_detail_genre.text = movie.genres.joinToString()
                  movie_detail_rating_bar.rating = movie.reviewAverage().toFloat()
-                 movie_detail_rating_value.text = movie.reviewAverage().toString()
+                 movie_detail_rating_value.text = BigDecimal(movie.reviewAverage()).setScale(1, RoundingMode.HALF_EVEN).toString()
                  movie_detail_review_count.text = movie.reviews.count().toString()
                  movie_detail_release.text = movie.release
                  movie_detail_plot.text = movie.plot
