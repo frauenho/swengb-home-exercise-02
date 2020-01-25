@@ -7,7 +7,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.*
 
 object MovieApi {
-    const val accessToken = "f0bc723d-5f91-455d-ba2d-14f09ef93ae3"
+    const val accessToken = "1f864ce2-ff5f-4b60-94f8-229f5e5964b3"
     const val baseurl = "https://movies.bloder.xyz"
 
     val retrofit: Retrofit

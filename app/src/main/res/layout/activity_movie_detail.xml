@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MovieDetailActivity">
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MovieDetailActivity">
 
     <ImageView
         android:id="@+id/movie_backdrop_image"
@@ -36,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:text="Director"
+        android:text="@string/movie_detail_director_label"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/open_review" />
@@ -57,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Actors"
+        android:text="@string/movie_detail_actors_label"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/movie_detail_director_label"
         app:layout_constraintTop_toBottomOf="@+id/movie_detail_director_label" />
@@ -77,7 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Genre"
+        android:text="@string/movie_detail_genre_label"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/movie_detail_actors_label"
         app:layout_constraintTop_toBottomOf="@+id/movie_detail_actors" />
@@ -114,14 +121,15 @@
         app:layout_constraintTop_toTopOf="@+id/movie_detail_rating_bar"
         tools:text="4.5" />
 
-    <TextView
-        android:id="@+id/movie_detail_review_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/movie_detail_rating_value"
-        app:layout_constraintStart_toEndOf="@+id/movie_detail_rating_value"
-        app:layout_constraintTop_toTopOf="@+id/movie_detail_rating_value"
-        tools:text="1" />
+        <TextView
+            android:id="@+id/movie_detail_review_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/movie_detail_rating_value"
+            app:layout_constraintStart_toEndOf="@+id/movie_detail_rating_value"
+            app:layout_constraintTop_toTopOf="@+id/movie_detail_rating_value"
+            tools:text="0" />
 
     <TextView
         android:id="@+id/movie_detail_release"
@@ -137,7 +145,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Plot"
+        android:text="@string/movie_detail_plot_label"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/movie_detail_genre_label"
         app:layout_constraintTop_toBottomOf="@+id/movie_detail_genre" />
@@ -159,7 +167,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:text="Review Movie"
+        android:text="@string/open_review"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/movie_detail_rating_bar" />
@@ -183,4 +191,6 @@
             tools:srcCompat="@tools:sample/avatars" />
     </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
